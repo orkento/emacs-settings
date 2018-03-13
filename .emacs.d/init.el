@@ -23,6 +23,7 @@
 (windmove-default-keybindings)
 (tool-bar-mode 0)
 (menu-bar-mode -1)
+(setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
 (setq inhibit-startup-message t)
 ;; find-fileのファイル名補完で大文字小文字を区別しない設定
