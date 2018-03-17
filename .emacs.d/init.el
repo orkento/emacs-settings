@@ -8,9 +8,12 @@
   (package-refresh-contents))
 
 ; list the packages you want
-(setq package-list '(auto-complete
+(setq package-list '(
+		     auto-complete
 		     projectile
-		     pt))
+		     pt
+		     markdown-mode
+		     ))
 
 ; install the missing packages
 (dolist (package package-list)
