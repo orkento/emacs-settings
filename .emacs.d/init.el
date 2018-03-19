@@ -32,6 +32,8 @@
 ;; find-fileのファイル名補完で大文字小文字を区別しない設定
 (setq completion-ignore-case t)
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
+(setq shr-color-visible-luminance-min 70)
+(setq custom-file (locate-user-emacs-file "custom.el"))
 
 ;; C++ style
 (add-hook 'c++-mode-hook
