@@ -27,6 +27,7 @@
 (tool-bar-mode 0)
 (menu-bar-mode -1)
 (set-scroll-bar-mode nil)
+(setq make-pointer-invisible t)
 (setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
 (setq inhibit-startup-message t)
