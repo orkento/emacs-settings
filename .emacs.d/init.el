@@ -26,6 +26,8 @@
 (windmove-default-keybindings)
 (tool-bar-mode 0)
 (menu-bar-mode -1)
+(set-scroll-bar-mode nil)
+(setq make-pointer-invisible t)
 (setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
 (setq inhibit-startup-message t)
@@ -34,6 +36,19 @@
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 (setq shr-color-visible-luminance-min 70)
 (setq custom-file (locate-user-emacs-file "custom.el"))
+
+(defun revert-buffer-no-confirm (&optional force-reverting)
+  "Interactive call to revert-buffer. Ignoring the auto-save
+ file and not requesting for confirmation. When the current buffer
+ is modified, the command refuses to revert it, unless you specify
+ the optional argument: force-reverting to true."
+  (interactive "P")
+  ;;(message "force-reverting value is %s" force-reverting)
+  (if (or force-reverting (not (buffer-modified-p)))
+      (revert-buffer :ignore-auto :noconfirm)
+    (error "The buffer has been modified")))
+
+(global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
 ;; C++ style
 (add-hook 'c++-mode-hook
