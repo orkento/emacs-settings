@@ -34,6 +34,12 @@
 (setq completion-ignore-case t)
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive) (revert-buffer t t))
+
+(global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
+
 ;; C++ style
 (add-hook 'c++-mode-hook
           '(lambda()
