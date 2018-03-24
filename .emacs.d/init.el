@@ -9,7 +9,7 @@
 
 ; list the packages you want
 (setq package-list '(
-		     auto-complete
+		     company
 		     projectile
 		     pt
 		     markdown-mode
@@ -19,9 +19,6 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
-(ac-config-default)
-(setq ac-auto-start 2)
 
 (windmove-default-keybindings)
 (tool-bar-mode 0)
@@ -36,6 +33,16 @@
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 (setq shr-color-visible-luminance-min 70)
 (setq custom-file (locate-user-emacs-file "custom.el"))
+
+(require 'company)
+(global-company-mode) ; 全バッファで有効にする 
+(setq company-idle-delay 0) ; デフォルトは0.5
+(setq company-minimum-prefix-length 2) ; デフォルトは4
+(setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+(setq completion-ignore-case t)
+(setq company-dabbrev-downcase nil)
+
+(company-quickhelp-mode 1)
 
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
