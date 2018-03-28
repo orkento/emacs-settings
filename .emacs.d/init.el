@@ -21,6 +21,7 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(set-default-coding-systems 'utf-8)
 (windmove-default-keybindings)
 (set-face-attribute 'default nil :family "Hack" :height 100)
 (tool-bar-mode 0)
