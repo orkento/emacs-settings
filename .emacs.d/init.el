@@ -13,6 +13,7 @@
 		     projectile
 		     pt
 		     markdown-mode
+		     glsl-mode
 		     ))
 
 ; install the missing packages
@@ -21,6 +22,7 @@
     (package-install package)))
 
 (windmove-default-keybindings)
+(set-face-attribute 'default nil :family "Hack" :height 100)
 (tool-bar-mode 0)
 (menu-bar-mode -1)
 (set-scroll-bar-mode nil)
@@ -57,10 +59,17 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-hook 'glsl-mode-hook
+	  '(lambda()
+	     (c-set-style "stroustrup")
+	     (setq indent-tabs-mode nil)
+	     ))
+
 ;; C++ style
 (add-hook 'c++-mode-hook
           '(lambda()
-             (c-set-style "cc-mode")
+             (c-set-style "stroustrup")
              (setq indent-tabs-mode nil)
 	     ))
 
