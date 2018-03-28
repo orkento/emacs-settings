@@ -3,25 +3,24 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t) ;; MELPA-stableを追加
 (package-initialize) ;; 初期化
 
-; fetch the list of packages available 
+;; fetch the list of packages available 
 (unless package-archive-contents
   (package-refresh-contents))
 
-; list the packages you want
+;; list the packages you want
 (setq package-list '(
-		     company
-		     projectile
-		     pt
-		     markdown-mode
-		     glsl-mode
-		     ))
+                     company
+                     projectile
+                     pt
+                     markdown-mode
+                     glsl-mode
+                     ))
 
-; install the missing packages
+;; install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
 
-(set-default-coding-systems 'utf-8)
 (windmove-default-keybindings)
 (set-face-attribute 'default nil :family "Hack" :height 100)
 (tool-bar-mode 0)
@@ -60,19 +59,22 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
+(set-default-coding-systems 'utf-8)
+(setq-default tab-width 4 indent-tabs-mode nil)
+
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
-	  '(lambda()
-	     (c-set-style "stroustrup")
-	     (setq indent-tabs-mode nil)
-	     ))
+          '(lambda()
+             (c-set-style "stroustrup")
+             (setq indent-tabs-mode nil)
+             ))
 
 ;; C++ style
 (add-hook 'c++-mode-hook
           '(lambda()
              (c-set-style "stroustrup")
              (setq indent-tabs-mode nil)
-	     ))
+             ))
 
 ;; writing to end for error check
 (load-theme 'tango-dark t)
