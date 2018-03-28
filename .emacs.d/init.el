@@ -59,7 +59,7 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
-(set-default-coding-systems 'utf-8)
+(prefer-coding-system 'utf-8)
 (setq-default tab-width 2 indent-tabs-mode nil)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
