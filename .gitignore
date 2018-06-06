@@ -4,3 +4,4 @@ auto-save-list
 .emacs.d/ac-comphist.dat
 .emacs.d/url/*
 .emacs.d/custom.el
+.emacs.d/projectile*
