@@ -12,6 +12,7 @@
 ;; list the packages you want
 (setq package-list '(
                      company
+                     company-quickhelp
                      projectile
                      pt
                      markdown-mode
