@@ -17,6 +17,7 @@
                      pt
                      markdown-mode
                      glsl-mode
+                     fish-mode
                      ))
 
 ;; install the missing packages
