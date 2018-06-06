@@ -1,3 +1,5 @@
+(prefer-coding-system 'utf-8)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t) ;; MELPAを追加
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t) ;; MELPA-stableを追加
@@ -59,7 +61,6 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
-(prefer-coding-system 'utf-8)
 (setq-default tab-width 2 indent-tabs-mode nil)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
