@@ -123,6 +123,14 @@
              (setq indent-tabs-mode nil)
              ))
 
+(add-hook 'c-mode-hook
+          '(lambda()
+             (ggtags-mode 1)
+             (c-set-style "stroustrup")
+             (setq tab-width 4
+                   indent-tabs-mode 1)
+             ))
+
 ;; C++ style
 (add-hook 'c++-mode-hook
           '(lambda()
