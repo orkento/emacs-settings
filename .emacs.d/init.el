@@ -49,6 +49,7 @@
 (setq company-dabbrev-downcase nil)
 
 (company-quickhelp-mode 1)
+(projectile-mode 1)
 
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
