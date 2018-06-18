@@ -62,6 +62,8 @@
     (setq mode-line-format (delete (assoc 'which-func-mode
                                           mode-line-format) mode-line-format)
           header-line-format which-func-header-line-format)))
+(eval-after-load "which-func"
+  '(setq which-func-modes '(java-mode c-mode c++-mode)))
 
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
