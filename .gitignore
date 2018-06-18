@@ -6,3 +6,5 @@ auto-save-list
 .emacs.d/custom.el
 .emacs.d/projectile*
 .emacs.d/eww-bookmarks
+.emacs.d/bookmarks
+.emacs.d/kkcrc
