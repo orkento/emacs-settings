@@ -18,6 +18,7 @@
                      markdown-mode
                      glsl-mode
                      fish-mode
+                     color-theme-sanityinc-tomorrow
                      ))
 
 ;; install the missing packages
