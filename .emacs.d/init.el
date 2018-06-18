@@ -51,6 +51,17 @@
 (company-quickhelp-mode 1)
 (projectile-mode 1)
 
+(which-function-mode t)
+
+(setq mode-line-format (delete (assoc 'which-func-mode
+                                      mode-line-format) mode-line-format)
+      which-func-header-line-format '(which-func-mode ("" which-func-format)))
+(defadvice which-func-ff-hook (after header-line activate)
+  (when which-func-mode
+    (setq mode-line-format (delete (assoc 'which-func-mode
+                                          mode-line-format) mode-line-format)
+          header-line-format which-func-header-line-format)))
+
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
  file and not requesting for confirmation. When the current buffer
@@ -81,4 +92,4 @@
              ))
 
 ;; writing to end for error check
-(load-theme 'tango-dark t)
+(load-theme 'sanityinc-tomorrow-night t)
