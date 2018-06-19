@@ -82,6 +82,23 @@
 
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (if (>= (window-body-width) 270)
+        (split-window-horizontally-n 3)
+      (split-window-horizontally)))
+  (other-window 1))
+(global-set-key (kbd "C-<tab>") 'other-window-or-split)
+
+(defun other-frame-or-make()
+  (interactive)
+  (if (equal (next-frame) (selected-frame))
+      (make-frame))
+  (other-frame 1))
+(if (display-graphic-p)
+    (global-set-key (kbd "C-<SPC>") 'other-frame-or-make))
+
 (setq-default tab-width 2 indent-tabs-mode nil)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
