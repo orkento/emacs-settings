@@ -68,7 +68,7 @@
   '(setq which-func-modes '(java-mode c-mode c++-mode)))
 
 (require 'recentf-ext)
-(setq recentf-max-saved-items 2000)
+(setq recentf-max-saved-items 500)
 
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
@@ -80,7 +80,6 @@
   (if (or force-reverting (not (buffer-modified-p)))
       (revert-buffer :ignore-auto :noconfirm)
     (error "The buffer has been modified")))
-
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
 (defun other-window-or-split ()
@@ -129,3 +128,5 @@
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
+(set-frame-parameter (selected-frame) 'alpha 95)
+(add-to-list 'default-frame-alist '(alpha . 95))
