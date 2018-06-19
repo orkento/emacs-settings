@@ -121,10 +121,11 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (define-key helm-find-files-map (kbd "<tab>") 'helm-execute-persistent-action)
 (define-key helm-read-file-map (kbd "<tab>") 'helm-execute-persistent-action)
-(global-set-key (kbd "C-x C-b") 'helm-buffer-list)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 (define-key helm-buffer-map (kbd "<tab>") 'helm-execute-persistent-action)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x o") 'helm-for-files)
+(global-set-key (kbd "C-t") 'helm-imenu)
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
