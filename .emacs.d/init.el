@@ -20,6 +20,8 @@
                      fish-mode
                      color-theme-sanityinc-tomorrow
                      recentf-ext
+                     helm
+                     helm-eww
                      ))
 
 ;; install the missing packages
@@ -66,8 +68,7 @@
   '(setq which-func-modes '(java-mode c-mode c++-mode)))
 
 (require 'recentf-ext)
-(setq recentf-max-saved-items 100)
-(global-set-key (kbd "C-x o") 'recentf-open-files)
+(setq recentf-max-saved-items 2000)
 
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
@@ -89,7 +90,7 @@
         (split-window-horizontally-n 3)
       (split-window-horizontally)))
   (other-window 1))
-(global-set-key (kbd "<tab>") 'other-window-or-split)
+(global-set-key (kbd "C-<tab>") 'other-window-or-split)
 
 (defun other-frame-or-make()
   (interactive)
@@ -97,7 +98,7 @@
       (make-frame))
   (other-frame 1))
 (if (display-graphic-p)
-    (global-set-key (kbd "C-<tab>") 'other-frame-or-make))
+    (global-set-key (kbd "C-S-<tab>") 'other-frame-or-make))
 
 (setq-default tab-width 2 indent-tabs-mode nil)
 
@@ -114,6 +115,16 @@
              (c-set-style "stroustrup")
              (setq indent-tabs-mode nil)
              ))
+
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(define-key helm-find-files-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "<tab>") 'helm-execute-persistent-action)
+(global-set-key (kbd "C-x C-b") 'helm-buffer-list)
+(define-key helm-buffer-map (kbd "<tab>") 'helm-execute-persistent-action)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x o") 'helm-for-files)
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
