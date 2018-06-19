@@ -89,7 +89,7 @@
         (split-window-horizontally-n 3)
       (split-window-horizontally)))
   (other-window 1))
-(global-set-key (kbd "C-<tab>") 'other-window-or-split)
+(global-set-key (kbd "<tab>") 'other-window-or-split)
 
 (defun other-frame-or-make()
   (interactive)
@@ -97,7 +97,7 @@
       (make-frame))
   (other-frame 1))
 (if (display-graphic-p)
-    (global-set-key (kbd "C-<SPC>") 'other-frame-or-make))
+    (global-set-key (kbd "C-<tab>") 'other-frame-or-make))
 
 (setq-default tab-width 2 indent-tabs-mode nil)
 
