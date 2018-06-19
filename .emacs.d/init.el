@@ -19,6 +19,7 @@
                      glsl-mode
                      fish-mode
                      color-theme-sanityinc-tomorrow
+                     recentf-ext
                      ))
 
 ;; install the missing packages
@@ -53,7 +54,6 @@
 (projectile-mode 1)
 
 (which-function-mode t)
-
 (setq mode-line-format (delete (assoc 'which-func-mode
                                       mode-line-format) mode-line-format)
       which-func-header-line-format '(which-func-mode ("" which-func-format)))
@@ -64,6 +64,10 @@
           header-line-format which-func-header-line-format)))
 (eval-after-load "which-func"
   '(setq which-func-modes '(java-mode c-mode c++-mode)))
+
+(require 'recentf-ext)
+(setq recentf-max-saved-items 100)
+(global-set-key (kbd "C-x o") 'recentf-open-files)
 
 (defun revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
