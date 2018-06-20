@@ -124,6 +124,7 @@
 (define-key helm-buffer-map (kbd "<tab>") 'helm-execute-persistent-action)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x o") 'helm-for-files)
+(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-t") 'helm-command-prefix)
 
 ;; writing to end for error check
