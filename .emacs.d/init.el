@@ -127,7 +127,7 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x o") 'helm-for-files)
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
-(global-set-key (kbd "C-t") 'helm-command-prefix)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-set-key (kbd "C-s") 'helm-occur);
 
 ;; writing to end for error check
