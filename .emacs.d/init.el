@@ -125,10 +125,9 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (define-key helm-buffer-map (kbd "<tab>") 'helm-execute-persistent-action)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x o") 'helm-for-files)
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-set-key (kbd "C-s") 'helm-occur);
+(define-key helm-command-map (kbd "o") 'helm-occur)
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
