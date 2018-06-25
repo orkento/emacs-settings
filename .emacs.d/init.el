@@ -103,6 +103,11 @@
 
 (setq-default tab-width 2 indent-tabs-mode nil)
 
+(require 'semantic)
+(semantic-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semanticdb-minor-mode 1)
+
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
           '(lambda()
