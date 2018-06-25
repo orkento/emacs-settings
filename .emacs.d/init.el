@@ -108,6 +108,18 @@
 (global-semantic-idle-scheduler-mode 1)
 (global-semanticdb-minor-mode 1)
 
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(define-key helm-find-files-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "<tab>") 'helm-execute-persistent-action)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(define-key helm-buffer-map (kbd "<tab>") 'helm-execute-persistent-action)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(define-key helm-command-map (kbd "o") 'helm-occur)
+
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
           '(lambda()
@@ -121,18 +133,6 @@
              (c-set-style "stroustrup")
              (setq indent-tabs-mode nil)
              ))
-
-(require 'helm-config)
-(helm-mode 1)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(define-key helm-find-files-map (kbd "<tab>") 'helm-execute-persistent-action)
-(define-key helm-read-file-map (kbd "<tab>") 'helm-execute-persistent-action)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(define-key helm-buffer-map (kbd "<tab>") 'helm-execute-persistent-action)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(define-key helm-command-map (kbd "o") 'helm-occur)
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
