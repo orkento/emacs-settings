@@ -50,7 +50,6 @@
 (setq company-minimum-prefix-length 2)
 (setq company-selection-wrap-around t)
 (setq company-dabbrev-downcase nil)
-(delete 'company-semantic company-backends)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
@@ -102,11 +101,6 @@
     (global-set-key (kbd "C-S-<tab>") 'other-frame-or-make))
 
 (setq-default tab-width 2 indent-tabs-mode nil)
-
-(require 'semantic)
-(semantic-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-(global-semanticdb-minor-mode 1)
 
 (require 'helm-config)
 (helm-mode 1)
