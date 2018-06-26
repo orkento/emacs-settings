@@ -11,8 +11,7 @@
 
 ;; list the packages you want
 (setq package-list '(
-                     company
-                     company-quickhelp
+                     auto-complete
                      projectile
                      pt
                      markdown-mode
@@ -44,17 +43,15 @@
 (setq shr-color-visible-luminance-min 70)
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
-(require 'company)
-(global-company-mode)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)
-(setq company-selection-wrap-around t)
-(setq completion-ignore-case t)
-(setq company-dabbrev-downcase nil)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+(global-auto-complete-mode t)
+(setq ac-auto-start 2)
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "C-n" 'ac-next)
+(define-key ac-menu-map "C-p" 'ac-previous)
 
-(company-quickhelp-mode 1)
 (projectile-mode 1)
 
 (which-function-mode t)
@@ -131,6 +128,7 @@
 (add-hook 'c++-mode-hook
           '(lambda()
              (c-set-style "stroustrup")
+             (add-to-list 'ac-sources 'ac-source-semantic)
              (setq indent-tabs-mode nil)
              ))
 
