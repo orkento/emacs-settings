@@ -50,10 +50,12 @@
 (setq company-minimum-prefix-length 2)
 (setq company-selection-wrap-around t)
 (setq company-dabbrev-downcase nil)
+(setq company-semantic-begin-after-member-access nil)
+(setq company-clang-arguments '("-isystem /c/git-sdk-64/mingw64/include/c++/7.3.0/"))
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
-
 (company-quickhelp-mode 1)
+
 (projectile-mode 1)
 
 (which-function-mode t)
@@ -104,6 +106,11 @@
 
 (setq-default tab-width 2 indent-tabs-mode nil)
 
+(semantic-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-completions-mode 1)
+
 (require 'helm-config)
 (helm-mode 1)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -127,6 +134,8 @@
           '(lambda()
              (ggtags-mode 1)
              (c-set-style "stroustrup")
+             (set (make-local-variable 'company-backends) '((company-semantic company-gtags company-keywords company-dabbrev-code)))
+             (local-set-key (kbd "C-c h i") 'helm-imenu)
              (setq tab-width 4
                    indent-tabs-mode 1)
              ))
@@ -134,11 +143,15 @@
 ;; C++ style
 (add-hook 'c++-mode-hook
           '(lambda()
+             (set (make-local-variable 'company-backends) '((company-clang)))
              (c-set-style "stroustrup")
              (setq indent-tabs-mode nil)
              ))
+
+(add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
 (set-frame-parameter (selected-frame) 'alpha 95)
 (add-to-list 'default-frame-alist '(alpha . 95))
+
