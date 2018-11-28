@@ -83,22 +83,24 @@
     (error "The buffer has been modified")))
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
-(defun other-window-or-split ()
-  (interactive)
+(defun other-window-or-split (slide)
   (when (one-window-p)
     (if (>= (window-body-width) 270)
         (split-window-horizontally-n 3)
       (split-window-horizontally)))
-  (other-window 1))
-(global-set-key (kbd "C-<tab>") 'other-window-or-split)
+  (other-window slide))
 
-(defun other-frame-or-make()
-  (interactive)
+(global-set-key (kbd "C-t") '(lambda()(interactive)(other-window-or-split 1)))
+(global-set-key (kbd "C-S-t") '(lambda()(interactive)(other-window-or-split -1)))
+
+(defun other-frame-or-make(slide)
   (if (equal (next-frame) (selected-frame))
       (make-frame))
-  (other-frame 1))
+  (other-frame slide))
+
 (if (display-graphic-p)
-    (global-set-key (kbd "C-S-<tab>") 'other-frame-or-make))
+    (global-set-key (kbd "C-<tab>") '(lambda()(interactive)(other-frame-or-make 1)))
+    (global-set-key (kbd "C-S-<tab>") '(lambda()(interactive)(other-frame-or-make -1))))
 
 (setq-default tab-width 2 indent-tabs-mode nil)
 
