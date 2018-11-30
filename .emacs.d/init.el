@@ -90,8 +90,7 @@
       (split-window-horizontally)))
   (other-window slide))
 
-(global-set-key (kbd "C-t") '(lambda()(interactive)(other-window-or-split 1)))
-(global-set-key (kbd "C-S-t") '(lambda()(interactive)(other-window-or-split -1)))
+(global-set-key (kbd "C-<tab>") '(lambda()(interactive)(other-window-or-split 1)))
 
 (defun other-frame-or-make(slide)
   (if (equal (next-frame) (selected-frame))
@@ -99,8 +98,7 @@
   (other-frame slide))
 
 (if (display-graphic-p)
-    (global-set-key (kbd "C-<tab>") '(lambda()(interactive)(other-frame-or-make 1)))
-    (global-set-key (kbd "C-S-<tab>") '(lambda()(interactive)(other-frame-or-make -1))))
+    (global-set-key (kbd "C-S-<tab>") '(lambda()(interactive)(other-frame-or-make 1))))
 
 (setq-default tab-width 2 indent-tabs-mode nil)
 
