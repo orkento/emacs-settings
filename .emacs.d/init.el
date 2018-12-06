@@ -22,6 +22,9 @@
                      recentf-ext
                      helm
                      helm-eww
+                     helm-gtags
+                     helm-projectile
+                     helm-git-grep
                      ))
 
 ;; install the missing packages
@@ -113,6 +116,8 @@
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (define-key helm-command-map (kbd "o") 'helm-occur)
+(define-key helm-command-map (kbd "e") 'helm-gtags-select)
+(define-key helm-command-map (kbd "g") 'helm-git-grep)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
