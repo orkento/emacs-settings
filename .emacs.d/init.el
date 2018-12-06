@@ -103,7 +103,7 @@
 (if (display-graphic-p)
     (global-set-key (kbd "C-S-<tab>") '(lambda()(interactive)(other-frame-or-make 1))))
 
-(setq-default tab-width 2 indent-tabs-mode nil)
+(setq-default c-basic-offset 4 tab-width 4 indent-tabs-mode nil)
 
 (require 'helm-config)
 (helm-mode 1)
@@ -123,6 +123,13 @@
 (add-hook 'glsl-mode-hook
           '(lambda()
              (c-set-style "stroustrup")
+             (setq indent-tabs-mode nil)
+             ))
+
+;; C style
+(add-hook 'c-mode-hook
+          '(lambda()
+             (c-set-style "k&r")
              (setq indent-tabs-mode nil)
              ))
 
