@@ -118,6 +118,7 @@
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "e") 'helm-gtags-select)
 (define-key helm-command-map (kbd "g") 'helm-git-grep)
+(define-key helm-command-map (kbd "p") 'helm-projectile)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
