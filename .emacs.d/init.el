@@ -20,6 +20,7 @@
                      fish-mode
                      color-theme-sanityinc-tomorrow
                      recentf-ext
+                     ggtags
                      helm
                      helm-eww
                      helm-gtags
@@ -116,7 +117,6 @@
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (define-key helm-command-map (kbd "o") 'helm-occur)
-(define-key helm-command-map (kbd "e") 'helm-gtags-select)
 (define-key helm-command-map (kbd "g") 'helm-git-grep)
 (define-key helm-command-map (kbd "p") 'helm-projectile)
 
