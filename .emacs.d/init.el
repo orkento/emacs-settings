@@ -104,7 +104,7 @@
 (if (display-graphic-p)
     (global-set-key (kbd "C-S-<tab>") '(lambda()(interactive)(other-frame-or-make 1))))
 
-(setq-default c-basic-offset 4 tab-width 4 indent-tabs-mode nil)
+(setq-default tab-width 2 indent-tabs-mode nil)
 
 (require 'helm-config)
 (helm-mode 1)
