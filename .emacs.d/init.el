@@ -50,10 +50,11 @@
 
 (require 'company)
 (global-company-mode)
-(setq company-idle-delay 0)
+(setq company-idle-delay 0.5)
 (setq company-minimum-prefix-length 2)
 (setq company-selection-wrap-around t)
 (setq company-dabbrev-downcase nil)
+(setq company-transformers '(company-sort-by-backend-importance))
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
@@ -127,18 +128,30 @@
              (setq indent-tabs-mode nil)
              ))
 
+(defun my-c-mode-common-init ()
+  "common hook for C/C++ mode"
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4)
+  (add-to-list (make-local-variable 'company-backends)
+                '(company-keywords
+                  company-semantic
+                  company-gtags
+                  company-clang
+                  ))
+  )
+
 ;; C style
 (add-hook 'c-mode-hook
           '(lambda()
+             (my-c-mode-common-init)
              (c-set-style "k&r")
-             (setq indent-tabs-mode nil)
              ))
 
 ;; C++ style
 (add-hook 'c++-mode-hook
           '(lambda()
+             (my-c-mode-common-init)
              (c-set-style "stroustrup")
-             (setq indent-tabs-mode nil)
              ))
 
 ;; writing to end for error check
