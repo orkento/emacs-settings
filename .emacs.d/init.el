@@ -50,13 +50,15 @@
 
 (require 'company)
 (global-company-mode)
-(setq company-idle-delay 0.5)
+(setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
 (setq company-selection-wrap-around t)
 (setq company-dabbrev-downcase nil)
 (setq company-transformers '(company-sort-by-backend-importance))
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-search-map (kbd "C-n") 'company-select-next)
+(define-key company-search-map (kbd "C-p") 'company-select-previous)
 
 (company-quickhelp-mode 1)
 (projectile-mode 1)
@@ -136,7 +138,7 @@
                 '(company-keywords
                   company-semantic
                   company-gtags
-                  company-clang
+                  ;; company-clang ;;too heavy
                   ))
   )
 
