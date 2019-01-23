@@ -48,6 +48,8 @@
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 (setq shr-color-visible-luminance-min 70)
 (setq custom-file (locate-user-emacs-file "custom.el"))
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq ediff-split-window-function 'split-window-horizontally)
 
 (require 'company)
 (global-company-mode)
