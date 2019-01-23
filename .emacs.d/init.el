@@ -21,6 +21,7 @@
                      color-theme-sanityinc-tomorrow
                      recentf-ext
                      ggtags
+                     google-translate
                      helm
                      helm-eww
                      helm-gtags
@@ -62,6 +63,11 @@
 
 (company-quickhelp-mode 1)
 (projectile-mode 1)
+
+(require 'google-translate)
+(require 'google-translate-smooth-ui)
+(setq google-translate-translation-directions-alist '(("en" . "ja") ("ja" . "en")))
+(global-set-key (kbd "C-c t") 'google-translate-smooth-translate)
 
 (which-function-mode t)
 (setq mode-line-format (delete (assoc 'which-func-mode
