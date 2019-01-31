@@ -115,7 +115,7 @@
 (if (display-graphic-p)
     (global-set-key (kbd "C-S-<tab>") '(lambda()(interactive)(other-frame-or-make 1))))
 
-(setq-default tab-width 2 indent-tabs-mode nil)
+(setq-default tab-width 2 indent-tabs-mode nil js-indent-level 2)
 
 (require 'helm-config)
 (helm-mode 1)
@@ -130,6 +130,10 @@
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "g") 'helm-git-grep)
 (define-key helm-command-map (kbd "p") 'helm-projectile)
+(require 'eww)
+(define-key eww-mode-map (kbd "B") 'helm-eww-bookmarks)
+(define-key eww-mode-map (kbd "H") 'helm-eww-history)
+(define-key eww-mode-map (kbd "S") 'helm-eww-buffers)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
