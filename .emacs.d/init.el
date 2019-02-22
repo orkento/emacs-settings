@@ -65,23 +65,13 @@
 
 (company-quickhelp-mode 1)
 (projectile-mode 1)
+(require 'semantic)
+(global-semantic-stickyfunc-mode t)
 
 (require 'google-translate)
 (require 'google-translate-smooth-ui)
 (setq google-translate-translation-directions-alist '(("en" . "ja") ("ja" . "en")))
 (global-set-key (kbd "C-c t") 'google-translate-smooth-translate)
-
-(which-function-mode t)
-(setq mode-line-format (delete (assoc 'which-func-mode
-                                      mode-line-format) mode-line-format)
-      which-func-header-line-format '(which-func-mode ("" which-func-format)))
-(defadvice which-func-ff-hook (after header-line activate)
-  (when which-func-mode
-    (setq mode-line-format (delete (assoc 'which-func-mode
-                                          mode-line-format) mode-line-format)
-          header-line-format which-func-header-line-format)))
-(eval-after-load "which-func"
-  '(setq which-func-modes '(java-mode c-mode c++-mode)))
 
 (require 'recentf-ext)
 (setq recentf-max-saved-items 500)
