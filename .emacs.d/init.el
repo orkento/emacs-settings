@@ -119,6 +119,7 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (define-key helm-command-map (kbd "o") 'helm-occur)
 (define-key helm-command-map (kbd "e") 'helm-gtags-select)
+(define-key helm-command-map (kbd "i") 'helm-imenu)
 (define-key helm-command-map (kbd "p") 'helm-do-pt)
 (define-key helm-command-map (kbd "S-p") 'helm-projectile-pt)
 (require 'eww)
