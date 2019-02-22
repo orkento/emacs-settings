@@ -172,6 +172,11 @@
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
-(set-face-background 'mode-line "dark red")
+
+(set-face-background 'mode-line "#660000")
+
+(global-hl-line-mode)
+(set-face-background 'hl-line "#570000")
+
 (set-frame-parameter (selected-frame) 'alpha 95)
 (add-to-list 'default-frame-alist '(alpha . 95))
