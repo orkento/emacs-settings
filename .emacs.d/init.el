@@ -90,9 +90,7 @@
 
 (defun other-window-or-split (slide)
   (when (one-window-p)
-    (if (>= (window-body-width) 270)
-        (split-window-horizontally-n 3)
-      (split-window-horizontally)))
+      (split-window-horizontally))
   (other-window slide))
 
 (global-set-key (kbd "C-<tab>") '(lambda()(interactive)(other-window-or-split 1)))
