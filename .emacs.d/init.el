@@ -128,6 +128,7 @@
 (define-key eww-mode-map (kbd "S") 'helm-eww-buffers)
 
 (add-to-list 'auto-mode-alist '("\\.wsf\\'" . xml-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . javascript-mode))
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
