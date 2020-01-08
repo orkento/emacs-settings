@@ -163,6 +163,12 @@
              (c-set-style "stroustrup")
              ))
 
+;; css-mode
+(add-hook 'css-mode-hook
+	  '(lambda ()
+	     (setq css-indent-offset 2)
+	     ))
+
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
 
