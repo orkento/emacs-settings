@@ -5,7 +5,7 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t) ;; MELPA-stableを追加
 (package-initialize) ;; 初期化
 
-;; fetch the list of packages available 
+;; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -22,6 +22,7 @@
                      recentf-ext
                      ggtags
                      google-translate
+                     flycheck
                      helm
                      helm-eww
                      helm-gtags
@@ -168,6 +169,9 @@
 	  '(lambda ()
 	     (setq css-indent-offset 2)
 	     ))
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; writing to end for error check
 (load-theme 'sanityinc-tomorrow-night t)
