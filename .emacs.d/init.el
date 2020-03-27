@@ -28,6 +28,11 @@
                      helm-gtags
                      helm-projectile
                      helm-git-grep
+                     web-mode
+                     lsp-mode
+                     nodenv
+                     add-node-modules-path
+                     company-lsp
                      ))
 
 ;; install the missing packages
@@ -129,7 +134,9 @@
 (define-key eww-mode-map (kbd "S") 'helm-eww-buffers)
 
 (add-to-list 'auto-mode-alist '("\\.wsf\\'" . xml-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . nodenv-mode))
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
@@ -169,6 +176,12 @@
 	  '(lambda ()
 	     (setq css-indent-offset 2)
 	     ))
+
+;; web-mode
+(add-hook 'web-mode-hook
+          '(lambda ()
+             (setq web-mode-code-indent-offset 2)
+             ))
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
