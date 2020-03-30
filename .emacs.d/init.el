@@ -136,7 +136,6 @@
 (add-to-list 'auto-mode-alist '("\\.wsf\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . nodenv-mode))
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
@@ -180,6 +179,8 @@
 ;; web-mode
 (add-hook 'web-mode-hook
           '(lambda ()
+             (nodenv-mode)
+             (add-node-modules-path)
              (setq web-mode-code-indent-offset 2)
              ))
 
