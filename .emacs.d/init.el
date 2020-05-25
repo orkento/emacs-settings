@@ -49,6 +49,7 @@
 (setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
 (setq inhibit-startup-message t)
+(setq ruby-insert-encoding-magic-comment nil)
 ;; find-fileのファイル名補完で大文字小文字を区別しない設定
 (setq completion-ignore-case t)
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
@@ -136,6 +137,7 @@
 (add-to-list 'auto-mode-alist '("\\.wsf\\'" . xml-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-hook 'glsl-mode-hook
@@ -182,6 +184,7 @@
              (nodenv-mode)
              (add-node-modules-path)
              (setq web-mode-code-indent-offset 2)
+             (setq web-mode-markup-indent-offset 2)
              ))
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
